@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cinesuggest - Favorites</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🎬 Cinesuggest
+        </div>
+
+        <nav>
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/">
+                ⭐ Top Rated
+            </a>
+
+            <a href="/favorites"
+               class="active">
+                ❤️ Favorites
+            </a>
+
+            <a href="/">
+                📌 Watchlist
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- FAVORITES -->
+
+    <main class="section">
+
+        <div class="section-header">
+
+            <div>
+
+                <div class="section-label">
+                    YOUR COLLECTION
+                </div>
+
+                <h2>
+                    ❤️ My Favorites
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div id="favoritesGrid"
+             class="movie-grid">
+
+            <p class="no-results">
+                Loading favorites...
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="{{ url_for('static', filename='js/app.js') }}">
+    </script>
+
+    <script>
+
+        loadFavorites();
+
+    </script>
+
+</body>
+
+</html>

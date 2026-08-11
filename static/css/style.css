@@ -1,0 +1,565 @@
+/* =========================================
+   CINESUGGEST - MAIN STYLES
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0b10;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+    height: 75px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    background: rgba(11, 11, 16, 0.95);
+    border-bottom: 1px solid #24242d;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar nav a {
+    color: #a9a9b2;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    padding: 80px 7%;
+
+    background:
+        radial-gradient(
+            circle at 75% 45%,
+            rgba(113, 62, 255, 0.20),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 25% 70%,
+            rgba(255, 70, 120, 0.10),
+            transparent 35%
+        );
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.small-title {
+    color: #9d7cff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 6vw, 82px);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    background: linear-gradient(
+        90deg,
+        #8f6cff,
+        #e76cff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    color: #aaaab5;
+    max-width: 650px;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   SEARCH BOX
+   ========================================= */
+
+.search-box {
+    width: min(650px, 100%);
+    display: flex;
+    padding: 6px;
+
+    background: #15151d;
+
+    border: 1px solid #2d2d38;
+    border-radius: 14px;
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+    color: #ffffff;
+
+    padding: 15px 18px;
+
+    font-size: 16px;
+}
+
+.search-box input::placeholder {
+    color: #777783;
+}
+
+.search-box button {
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 0 25px;
+
+    background: linear-gradient(
+        135deg,
+        #7655ff,
+        #b34fff
+    );
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 30px rgba(
+            120,
+            80,
+            255,
+            0.25
+        );
+}
+
+
+/* =========================================
+   SECTIONS
+   ========================================= */
+
+.section {
+    padding: 70px 7%;
+}
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: end;
+
+    margin-bottom: 30px;
+}
+
+.section-label {
+    color: #8f6cff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+}
+
+.view-all {
+    border: none;
+
+    background: transparent;
+
+    color: #aaaab5;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.view-all:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================
+   MOVIE GRID
+   ========================================= */
+
+.movie-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =========================================
+   MOVIE CARD
+   ========================================= */
+
+.movie-card {
+    background: #15151d;
+
+    border: 1px solid #25252f;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    transition: 0.35s;
+
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #5f49b8;
+
+    box-shadow:
+        0 20px 40px rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+}
+
+.poster-placeholder {
+    height: 300px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #20202b,
+            #121219
+        );
+}
+
+.movie-info {
+    padding: 18px;
+}
+
+.movie-info h3 {
+    font-size: 17px;
+
+    margin-bottom: 8px;
+}
+
+.movie-info p {
+    color: #858590;
+
+    font-size: 13px;
+
+    margin-bottom: 14px;
+}
+
+.movie-rating {
+    color: #ffc857;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   FAVORITE BUTTON
+   ========================================= */
+
+.favorite-button {
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 10px;
+
+    border: 1px solid #3a3a48;
+
+    border-radius: 8px;
+
+    background: #1b1b25;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.favorite-button:hover {
+    background: #292938;
+
+    border-color: #7655ff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   GENRES
+   ========================================= */
+
+.genres-section {
+    padding-bottom: 100px;
+}
+
+.genre-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.genre-card {
+    min-height: 100px;
+
+    border: 1px solid #282832;
+
+    border-radius: 14px;
+
+    background: #15151d;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.genre-card:hover {
+    background: #1d1d29;
+
+    border-color: #7655ff;
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    padding: 45px 7%;
+
+    border-top: 1px solid #24242d;
+
+    text-align: center;
+
+    color: #777783;
+}
+
+.footer-logo {
+    color: #ffffff;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.copyright {
+    color: #555561;
+
+    margin-top: 18px;
+}
+
+
+/* =========================================
+   NO RESULTS
+   ========================================= */
+
+.no-results {
+    color: #aaaab5;
+
+    font-size: 16px;
+
+    padding: 30px 0;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .movie-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .genre-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .hero,
+    .section {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .navbar {
+        height: auto;
+
+        padding: 18px 5%;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .navbar nav {
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero {
+        padding-top: 60px;
+
+        padding-bottom: 60px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .search-box {
+        flex-direction: column;
+
+        gap: 8px;
+
+        background: transparent;
+
+        border: none;
+
+        padding: 0;
+    }
+
+    .search-box input {
+        background: #15151d;
+
+        border: 1px solid #2d2d38;
+
+        border-radius: 10px;
+    }
+
+    .search-box button {
+        min-height: 50px;
+    }
+
+    .section-header {
+        align-items: flex-start;
+
+        gap: 15px;
+
+        flex-direction: column;
+    }
+
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .genre-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .poster-placeholder {
+        height: 280px;
+    }
+}

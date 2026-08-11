@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cinesuggest - Movie Details</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         NAVBAR
+    =========================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🎬 Cinesuggest
+        </div>
+
+        <nav>
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/">
+                ⭐ Top Rated
+            </a>
+
+            <a href="/favorites">
+                ❤️ Favorites
+            </a>
+
+            <a href="/watchlist">
+                📌 Watchlist
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ==========================================
+         MOVIE DETAILS
+    =========================================== -->
+
+    <main class="details-container">
+
+        <div id="movieDetails">
+
+            <p class="no-results">
+                Loading movie details...
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==========================================
+         MOVIE DETAILS SCRIPT
+    =========================================== -->
+
+    <script>
+
+        async function loadMovieDetails() {
+
+            const container =
+                document.getElementById(
+                    "movieDetails"
+                );
+
+
+            // Get movie ID from URL
+            // Example:
+            // /movie/1
+            // /movie/10
+
+            const path =
+                window.location.pathname;
+
+            const parts =
+                path.split("/");
+
+            const movieId =
+                parts[parts.length - 1];
+
+
+            console.log(
+                "Movie ID:",
+                movieId
+            );
+
+
+            if (!movieId) {
+
+                container.innerHTML = `
+                    <p class="no-results">
+                        ❌ Movie ID not found.
+                    </p>
+                `;
+
+                return;
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `/api/movie/${movieId}`
+                    );
+
+
+                console.log(
+                    "API status:",
+                    response.status
+                );
+
+
+                const movie =
+                    await response.json();
+
+
+                console.log(
+                    "Movie data:",
+                    movie
+                );
+
+
+                if (!response.ok) {
+
+                    container.innerHTML = `
+                        <p class="no-results">
+                            ❌ Movie not found.
+                        </p>
+                    `;
+
+                    return;
+                }
+
+
+                container.innerHTML = `
+
+                    <div class="movie-details-card">
+
+                        <div class="details-poster">
+
+                            🎬
+
+                        </div>
+
+
+                        <div class="details-content">
+
+                            <div class="section-label">
+
+                                MOVIE DETAILS
+
+                            </div>
+
+
+                            <h1>
+
+                                ${movie.title}
+
+                            </h1>
+
+
+                            <p class="details-genre">
+
+                                🎭 Genres:
+
+                                ${movie.genres}
+
+                            </p>
+
+
+                            <p class="details-id">
+
+                                🆔 Movie ID:
+
+                                ${movie.movieId}
+
+                            </p>
+
+
+                            <div class="details-actions">
+
+
+                                <button
+                                    class="favorite-button"
+                                    onclick="
+                                        addFavorite(
+                                            ${movie.movieId}
+                                        )
+                                    "
+                                >
+
+                                    ❤️ Add Favorite
+
+                                </button>
+
+
+                                <button
+                                    class="favorite-button"
+                                    onclick="
+                                        addToWatchlist(
+                                            ${movie.movieId}
+                                        )
+                                    "
+                                >
+
+                                    📌 Add to Watchlist
+
+                                </button>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Movie details error:",
+                    error
+                );
+
+
+                container.innerHTML = `
+
+                    <p class="no-results">
+
+                        ❌ Could not load movie details.
+
+                    </p>
+
+                `;
+
+            }
+
+        }
+
+
+        // ==========================================
+        // ADD FAVORITE
+        // ==========================================
+
+        async function addFavorite(movieId) {
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/favorites/add",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                movieId: movieId
+                            })
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (result.success) {
+
+                    alert(
+                        "❤️ Movie added to favorites!"
+                    );
+
+                }
+
+                else {
+
+                    alert(
+                        "❌ " +
+                        (
+                            result.message ||
+                            "Could not add movie."
+                        )
+                    );
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Favorite error:",
+                    error
+                );
+
+                alert(
+                    "Could not add movie to favorites."
+                );
+
+            }
+
+        }
+
+
+        // ==========================================
+        // ADD WATCHLIST
+        // ==========================================
+
+        async function addToWatchlist(movieId) {
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/watchlist/add",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                movieId: movieId
+                            })
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+
+                if (result.success) {
+
+                    alert(
+                        "📌 Movie added to watchlist!"
+                    );
+
+                }
+
+                else {
+
+                    alert(
+                        "❌ " +
+                        (
+                            result.message ||
+                            "Could not add movie."
+                        )
+                    );
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Watchlist error:",
+                    error
+                );
+
+                alert(
+                    "Could not add movie to watchlist."
+                );
+
+            }
+
+        }
+
+
+        // ==========================================
+        // START
+        // ==========================================
+
+        loadMovieDetails();
+
+    </script>
+
+</body>
+
+</html>

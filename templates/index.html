@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cinesuggest</title>
+
+    <link rel="stylesheet"
+          href="../static/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ========================= -->
+    <!-- NAVBAR -->
+    <!-- ========================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🎬 Cinesuggest
+        </div>
+
+        <nav>
+
+            <a href="#" class="active">
+                Home
+            </a>
+
+            <a href="#">
+                ⭐ Top Rated
+            </a>
+
+            <a href="/favorites">
+                ❤️ Favorites
+            </a>
+
+            <a href="/watchlist">
+                📌 Watchlist
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ========================= -->
+    <!-- HERO SECTION -->
+    <!-- ========================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="small-title">
+                    YOUR PERSONAL MOVIE GUIDE
+                </p>
+
+                <h1>
+                    Discover Your<br>
+                    Next <span>Favorite Movie.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Search movies, discover similar films,
+                    explore top-rated titles and build
+                    your personal watchlist.
+                </p>
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search for a movie..."
+                    >
+
+                    <button id="searchButton">
+                        🔍 Search
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- RECOMMENDED -->
+        <!-- ========================= -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="section-label">
+                        PERSONALIZED
+                    </p>
+
+                    <h2>
+                        Recommended For You
+                    </h2>
+
+                </div>
+
+                <button class="view-all">
+                    View All →
+                </button>
+
+            </div>
+
+
+            <div class="movie-grid"
+                 id="recommendationGrid">
+
+                <!-- Movie cards will come here -->
+
+                <div class="movie-card">
+
+                    <div class="poster-placeholder">
+                        🎬
+                    </div>
+
+                    <div class="movie-info">
+
+                        <h3>
+                            Movie Title
+                        </h3>
+
+                        <p>
+                            Action • Drama
+                        </p>
+
+                        <div class="movie-rating">
+                            ⭐ 4.5
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="movie-card">
+
+                    <div class="poster-placeholder">
+                        🎬
+                    </div>
+
+                    <div class="movie-info">
+
+                        <h3>
+                            Movie Title
+                        </h3>
+
+                        <p>
+                            Comedy • Drama
+                        </p>
+
+                        <div class="movie-rating">
+                            ⭐ 4.3
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="movie-card">
+
+                    <div class="poster-placeholder">
+                        🎬
+                    </div>
+
+                    <div class="movie-info">
+
+                        <h3>
+                            Movie Title
+                        </h3>
+
+                        <p>
+                            Action • Adventure
+                        </p>
+
+                        <div class="movie-rating">
+                            ⭐ 4.2
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="movie-card">
+
+                    <div class="poster-placeholder">
+                        🎬
+                    </div>
+
+                    <div class="movie-info">
+
+                        <h3>
+                            Movie Title
+                        </h3>
+
+                        <p>
+                            Sci-Fi • Thriller
+                        </p>
+
+                        <div class="movie-rating">
+                            ⭐ 4.1
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- TOP RATED -->
+        <!-- ========================= -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="section-label">
+                        FAN FAVORITES
+                    </p>
+
+                    <h2>
+                        Top Rated Movies
+                    </h2>
+
+                </div>
+
+                <button class="view-all">
+                    Explore →
+                </button>
+
+            </div>
+
+
+            <div class="movie-grid"
+                 id="topRatedGrid">
+
+                <div class="movie-card">
+
+                    <div class="poster-placeholder">
+                        ⭐
+                    </div>
+
+                    <div class="movie-info">
+
+                        <h3>
+                            Top Rated Movie
+                        </h3>
+
+                        <p>
+                            Drama • Crime
+                        </p>
+
+                        <div class="movie-rating">
+                            ⭐ 4.8
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="movie-card">
+
+                    <div class="poster-placeholder">
+                        ⭐
+                    </div>
+
+                    <div class="movie-info">
+
+                        <h3>
+                            Top Rated Movie
+                        </h3>
+
+                        <p>
+                            Adventure • Drama
+                        </p>
+
+                        <div class="movie-rating">
+                            ⭐ 4.7
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="movie-card">
+
+                    <div class="poster-placeholder">
+                        ⭐
+                    </div>
+
+                    <div class="movie-info">
+
+                        <h3>
+                            Top Rated Movie
+                        </h3>
+
+                        <p>
+                            Action • Crime
+                        </p>
+
+                        <div class="movie-rating">
+                            ⭐ 4.6
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="movie-card">
+
+                    <div class="poster-placeholder">
+                        ⭐
+                    </div>
+
+                    <div class="movie-info">
+
+                        <h3>
+                            Top Rated Movie
+                        </h3>
+
+                        <p>
+                            Fantasy • Adventure
+                        </p>
+
+                        <div class="movie-rating">
+                            ⭐ 4.5
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- GENRE SECTION -->
+        <!-- ========================= -->
+
+        <section class="section genres-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <p class="section-label">
+                EXPLORE
+            </p>
+
+            <h2>
+                Browse By Genre
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="genre-grid">
+
+        <button class="genre-card" data-genre="Action">
+            🎬 Action
+        </button>
+
+        <button class="genre-card" data-genre="Comedy">
+            😂 Comedy
+        </button>
+
+        <button class="genre-card" data-genre="Romance">
+            ❤️ Romance
+        </button>
+
+        <button class="genre-card" data-genre="Horror">
+            👻 Horror
+        </button>
+
+        <button class="genre-card" data-genre="Sci-Fi">
+            🚀 Sci-Fi
+        </button>
+
+        <button class="genre-card" data-genre="Thriller">
+            🕵️ Thriller
+        </button>
+
+        <button class="genre-card" data-genre="Drama">
+            🎭 Drama
+        </button>
+
+        <button class="genre-card" data-genre="Adventure">
+            🗺️ Adventure
+        </button>
+
+    </div>
+
+</section>
+
+    </main>
+
+
+    <!-- ========================= -->
+    <!-- FOOTER -->
+    <!-- ========================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            🎬 Cinesuggest
+        </div>
+
+        <p>
+            Your personal movie recommendation system.
+        </p>
+
+        <p class="copyright">
+            © 2026 Cinesuggest
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../static/js/app.js"></script>
+
+</body>
+
+</html>
